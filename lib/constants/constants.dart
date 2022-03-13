@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hang_man/model/alphabet_button.dart';
 
 const scoresTextStyle = TextStyle(
   fontSize: 20,
@@ -37,31 +38,33 @@ const gameOverDialogTitleTextStyle = TextStyle(
   fontFamily: 'PatrickHand',
 );
 
-const alphabets = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z',
+List<AlphabetButton> alphabets = [
+  AlphabetButton(alphabet: 'A', isUsed: false),
+  AlphabetButton(alphabet: 'B', isUsed: false),
+  AlphabetButton(alphabet: 'C', isUsed: false),
+  AlphabetButton(alphabet: 'D', isUsed: false),
+  AlphabetButton(alphabet: 'E', isUsed: false),
+  AlphabetButton(alphabet: 'F', isUsed: false),
+  AlphabetButton(alphabet: 'G', isUsed: false),
+  AlphabetButton(alphabet: 'H', isUsed: false),
+  AlphabetButton(alphabet: 'I', isUsed: false),
+  AlphabetButton(alphabet: 'J', isUsed: false),
+  AlphabetButton(alphabet: 'K', isUsed: false),
+  AlphabetButton(alphabet: 'L', isUsed: false),
+  AlphabetButton(alphabet: 'M', isUsed: false),
+  AlphabetButton(alphabet: 'N', isUsed: false),
+  AlphabetButton(alphabet: 'O', isUsed: false),
+  AlphabetButton(alphabet: 'P', isUsed: false),
+  AlphabetButton(alphabet: 'Q', isUsed: false),
+  AlphabetButton(alphabet: 'R', isUsed: false),
+  AlphabetButton(alphabet: 'S', isUsed: false),
+  AlphabetButton(alphabet: 'T', isUsed: false),
+  AlphabetButton(alphabet: 'U', isUsed: false),
+  AlphabetButton(alphabet: 'V', isUsed: false),
+  AlphabetButton(alphabet: 'W', isUsed: false),
+  AlphabetButton(alphabet: 'X', isUsed: false),
+  AlphabetButton(alphabet: 'Y', isUsed: false),
+  AlphabetButton(alphabet: 'Z', isUsed: false),
 ];
+
+

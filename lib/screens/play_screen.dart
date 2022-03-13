@@ -7,7 +7,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import 'dart:math' as math;
 
-import '/screens/home_screen.dart';
 import '../constants/constants.dart';
 import '../utilities/dialogs/result_dialog.dart';
 
@@ -47,6 +46,10 @@ class _PlayScreenState extends State<PlayScreen> {
       tries = 5;
       photoIndex = 0;
       isHintUsed = false;
+      for(var alphabet in alphabets) {
+        alphabet.isUsed = false;
+        print(alphabet.isUsed);
+      }
       randomList = randomWord.characters.toList().map((char) => char).toList();
       letters = randomWord.characters.toList().map((char) => '_').toList();
       Navigator.of(context).pop();
@@ -170,20 +173,27 @@ class _PlayScreenState extends State<PlayScreen> {
                     itemBuilder: (context, index) {
                       return GridTile(
                         child: InkWell(
-                          onTap: () {
-                            if (lives >= 0) {
-                              checkResult(index: index);
-                            }
-                          },
+                          onTap: alphabets[index].isUsed
+                              ? null
+                              : () {
+                                  if (lives >= 0) {
+                                    checkResult(index: index);
+                                    setState(() {
+                                      alphabets[index].isUsed = true;
+                                    });
+                                  }
+                                },
                           child: Container(
                             margin: const EdgeInsets.all(5.0),
                             decoration: BoxDecoration(
-                              color: Colors.blue,
+                              color: alphabets[index].isUsed
+                                  ? Colors.grey
+                                  : Colors.blue,
                               borderRadius: BorderRadius.circular(5),
                             ),
                             child: Center(
                               child: Text(
-                                alphabets[index],
+                                alphabets[index].alphabet,
                                 style: playScreenAlphabetsTextStyle,
                               ),
                             ),
@@ -204,7 +214,7 @@ class _PlayScreenState extends State<PlayScreen> {
   void checkResult({
     required int index,
   }) {
-    String char = alphabets[index].toLowerCase();
+    String char = alphabets[index].alphabet.toLowerCase();
     for (int i = 0; i < randomList.length; i++) {
       if (randomList[i] == char) {
         setState(() {
@@ -248,4 +258,6 @@ class _PlayScreenState extends State<PlayScreen> {
       }
     }
   }
+  // function ends here
+
 }

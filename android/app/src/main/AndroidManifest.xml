@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.topdevelopers.hang_man">
    <application
-        android:label="hang_man"
+        android:label="Hang Man"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
